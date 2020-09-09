@@ -1,5 +1,6 @@
-.img-wrapper{
+.card-img-wrapper{
   overflow: hidden;
+  position: relative;
 }
 
 .card:hover img{
@@ -15,5 +16,17 @@
   transition-duration: 500ms;
   transition-timing-function: ease-out;
   height: 250px;
-  width: 2500px;
+}
+
+.member-icons{
+  position: absolute;
+  bottom: -30%;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.card-img-wrapper:hover .member-icons{
+  bottom: 0;
 }
