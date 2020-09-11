@@ -17,6 +17,7 @@ export class PropertyListComponent implements OnInit {
   ngOnInit(): void {
     if(this.route.snapshot.url.toString()){
       this.SellRent = 2;
+      console.log(this.route.snapshot.url.toString());
     }
 
     this.housingService.getAllProperties(this.SellRent).subscribe(

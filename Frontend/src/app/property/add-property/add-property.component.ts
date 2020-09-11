@@ -17,4 +17,8 @@ export class AddPropertyComponent implements OnInit {
     this.router.navigate(['/'])
   }
 
+  onSubmit(){
+    console.log('Congrats, from Submitted');
+  }
+
 }
