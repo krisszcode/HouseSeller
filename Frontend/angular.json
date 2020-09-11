@@ -30,7 +30,7 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.sass"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -130,5 +130,10 @@
   "defaultProject": "my-first-app",
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "css"
+    }
   }
 }
