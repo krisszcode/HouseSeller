@@ -5,7 +5,7 @@
       Register
     </div>
     <div class="card-body">
-      <form [formGroup]="registerationForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="form-group col-12">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" formControlName="userName">
@@ -48,7 +48,7 @@
               Please confirm password
             </span>
           </span>
-            <span *ngIf="!confirmPassword.hasError('notmatched') && confirmPassword.valid" class="error-block">
+            <span *ngIf="registrationForm.hasError('notmatched') && confirmPassword.valid" class="error-block">
                 Password not matched
             </span>
         </div>
@@ -62,8 +62,8 @@
           <button type="submit" class="btn btn-primary">Save</button>
           <button type="reset" class="btn btn-secondary ml-2">Cancel</button>
         </div>
-        Form Values: {{registerationForm.value | json}} <br>
-        Form Status: {{registerationForm.valid}}
+        Form Values: {{registrationForm.value | json}} <br>
+        Form Status: {{registrationForm.valid}}
       </form>
     </div>
   </div>
