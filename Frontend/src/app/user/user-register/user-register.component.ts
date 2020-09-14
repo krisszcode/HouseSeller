@@ -18,15 +18,14 @@ export class UserRegisterComponent implements OnInit {
       password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl(null, [Validators.required]),
       mobile: new FormControl(null, [Validators.required, Validators.minLength(10)])
-    }, this.passwordMatchingValidator);
+    }, this.passwordMatchingValidatior);
   }
 
-  passwordMatchingValidator(fg: FormGroup): Validators {
+  passwordMatchingValidatior(fg: FormGroup): Validators {
     return fg.get('password').value === fg.get('confirmPassword').value ? null :
-    {
-      notmatched: false
-    }
+    {notmatched: true};
   }
+
 
   get userName(){
     return this.registerationForm.get('userName') as FormControl;
