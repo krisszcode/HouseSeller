@@ -1,3 +1,5 @@
+import { User } from './../../model/User';
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import {
   FormGroup,
@@ -13,9 +15,10 @@ import {
 })
 export class UserRegisterComponent implements OnInit {
   registrationForm: FormGroup;
-  user: any = {};
+  user: User;
+  userSubmitted: boolean;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private UserService: UserService) {}
 
   ngOnInit() {
     // this.registrationForm = new FormGroup({
@@ -69,18 +72,22 @@ export class UserRegisterComponent implements OnInit {
 
   onSubmit() {
     console.log(this.registrationForm.value);
-    this.user = Object.assign(this.user, this.registrationForm.value);
-    this.addUser(this.user);
+    this.userSubmitted = true;
+    if (this.registrationForm.valid) {
+      // this.user = this.registrationForm.value;
+      console.log(JSON.stringify(this.user));
+      this.UserService.addUser(this.userData());
+      this.registrationForm.reset();
+      this.userSubmitted = false;
+    }
   }
 
-  addUser(user) {
-    let users = [];
-    if (localStorage.getItem('Users')) {
-      users = JSON.parse(localStorage.getItem('Users'));
-      users = [user, ...users];
-    } else {
-      users = [user];
-    }
-    localStorage.setItem('Users', JSON.stringify(this.user));
+  userData(): User {
+    return (this.user = {
+      userName: this.userName.value,
+      email: this.email.value,
+      password: this.password.value,
+      mobile: this.mobile.value,
+    });
   }
 }
