@@ -1,3 +1,4 @@
+import { AlertifyService } from './services/alertify.service';
 import { UserService } from './services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [HousingService, UserService],
+  providers: [HousingService, UserService, AlertifyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
