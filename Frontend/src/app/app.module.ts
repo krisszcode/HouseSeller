@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { AlertifyService } from './services/alertify.service';
 import { UserService } from './services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [HousingService, UserService, AlertifyService],
+  providers: [HousingService, UserService, AlertifyService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
