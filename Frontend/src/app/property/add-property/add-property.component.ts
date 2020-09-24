@@ -1,4 +1,4 @@
-import { Iproperty } from './../IProperty.interface';
+import { IpropertyBase } from './../../model/ipropertybase';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -17,12 +17,17 @@ export class AddPropertyComponent implements OnInit {
   furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished'];
   moveTypes: Array<string> = ['East', 'West', 'South', 'North'];
 
-  propertyView: Iproperty = {
+  propertyView: IpropertyBase = {
     Id: null,
     Name: '',
     Price: null,
     Sellrent: null,
-    Type: null,
+    PType: null,
+    FType: null,
+    BHK: null,
+    BuiltArea: null,
+    City: null,
+    RTM: null,
   };
 
   constructor(private router: Router) {}
@@ -35,6 +40,7 @@ export class AddPropertyComponent implements OnInit {
 
   onSubmit(Form: NgForm) {
     console.log('Congrats, form Submitted');
+    console.log('SellRent=' + this.addPropertyForm.value.BasicInfo.SellRent);
     console.log(this.addPropertyForm);
   }
 
